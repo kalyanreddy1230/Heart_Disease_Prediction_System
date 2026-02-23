@@ -1,4 +1,4 @@
-# Heart Disease Prediction System (FastAPI + React + PostgreSQL + Machine Learning)
+# Heart Disease Prediction System
 
 A full-stack Machine Learning web application that predicts heart disease risk using a trained scikit-learn model. The system includes a FastAPI backend, React frontend, PostgreSQL database, and ML model integration. Every prediction is stored in the database for tracking, analytics, and real-world production simulation.
 
