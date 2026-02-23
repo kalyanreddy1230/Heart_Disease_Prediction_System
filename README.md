@@ -52,6 +52,9 @@ PostgreSQL Database
 
 ## 📂 Project Structure
 
+## Project Structure
+
+```
 heart-disease-prediction/
 │
 ├── backend/
@@ -60,23 +63,22 @@ heart-disease-prediction/
 │   │   ├── database.py
 │   │   ├── models.py
 │   │   ├── schemas.py
-│   │   ├── ml_model/
-│   │   │   ├── train.py
-│   │   │   └── model.pkl
 │   │   └── routes/
 │   │       └── predict.py
+│   ├── ml_model/
+│   │   ├── train.py
+│   │   └── model.pkl
 │   ├── requirements.txt
-│   └── Dockerfile
+│   ├── Dockerfile
+│   └── docker-compose.yml
 │
 ├── frontend/
 │   ├── src/
-│   ├── package.json
+│   └── package.json
 │
-├── data/
-│   └── heart.csv
-│
-├── README.md
-└── docker-compose.yml
+└── data/
+    └── heart.csv
+
 
 ---
 
