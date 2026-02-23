@@ -60,12 +60,13 @@ heart-disease-prediction/
 │   │   ├── database.py
 │   │   ├── models.py
 │   │   ├── schemas.py
-│   │   ├── routes/
-│   │   │   └── predict.py
-│   │   └── ml_model/
-│   │       ├── train.py
-│   │       └── model.pkl
+│   │   ├── ml_model/
+│   │   │   ├── train.py
+│   │   │   └── model.pkl
+│   │   └── routes/
+│   │       └── predict.py
 │   ├── requirements.txt
+│   └── Dockerfile
 │
 ├── frontend/
 │   ├── src/
@@ -74,8 +75,8 @@ heart-disease-prediction/
 ├── data/
 │   └── heart.csv
 │
-├── docker-compose.yml
-└── README.md
+├── README.md
+└── docker-compose.yml
 
 ---
 
