@@ -1,190 +1,288 @@
-# ❤️ Heart Disease Prediction System
+# Heart Disease Prediction System (FastAPI + React + PostgreSQL + Machine Learning)
 
-## 📌 Overview
+A full-stack Machine Learning web application that predicts heart disease risk using a trained scikit-learn model. The system includes a FastAPI backend, React frontend, PostgreSQL database, and ML model integration. Every prediction is stored in the database for tracking, analytics, and real-world production simulation.
 
-The Heart Disease Prediction System is a full-stack machine learning application that predicts the likelihood of heart disease using clinical and demographic patient data.
-
-This project demonstrates:
-
-- End-to-end ML lifecycle
-- Model training & evaluation
-- REST API development
-- Database integration
-- Frontend integration
-- Production-ready architecture
+This project demonstrates complete end-to-end Machine Learning deployment using modern full-stack architecture.
 
 ---
 
-## 🏗️ System Architecture
+# Live Architecture Overview
 
-Frontend (React)
-        ↓
-Backend API (FastAPI)
-        ↓
-Machine Learning Model (.pkl)
-        ↓
-PostgreSQL Database
+React Frontend (Vite)  
+http://localhost:5173  
 
----
+↓  
 
-## 🛠️ Tech Stack
+FastAPI Backend  
+http://127.0.0.1:8000  
 
-### Machine Learning
-- Python 3.11+
-- Pandas
-- NumPy
-- Scikit-learn
-- Joblib
+↓  
 
-### Backend
-- FastAPI
-- Uvicorn
-- SQLAlchemy
-- Pydantic
-- PostgreSQL
+Machine Learning Model (scikit-learn model.pkl)
 
-### Frontend
-- React (Vite)
-- Axios
-- TailwindCSS / Bootstrap
+↓  
+
+PostgreSQL Database (heart_predictions table)
 
 ---
 
-## 📂 Project Structure
+# Features
 
-## Project Structure
+• End-to-end Machine Learning deployment  
+• FastAPI production-ready backend  
+• React frontend with live prediction UI  
+• PostgreSQL database integration  
+• SQLAlchemy ORM for clean database management  
+• Automatic Swagger API documentation  
+• Real-time prediction storage in database  
+• Modular, scalable, production-grade architecture  
+
+---
+
+# Tech Stack
+
+Backend  
+Python  
+FastAPI  
+Uvicorn  
+SQLAlchemy  
+PostgreSQL  
+psycopg2  
+
+Machine Learning  
+pandas  
+numpy  
+scikit-learn  
+
+Frontend  
+React  
+Vite  
+JavaScript  
+Fetch API  
+
+Database  
+PostgreSQL  
+
+Tools  
+Git  
+VS Code  
+Terminal  
+
+---
+
+# Project Structure
 
 ```
-heart-disease-prediction/
+Heart_Disease_Prediction_System/
+
+backend/
 │
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── database.py
-│   │   ├── models.py
-│   │   ├── schemas.py
-│   │   └── routes/
-│   │       └── predict.py
-│   ├── ml_model/
-│   │   ├── train.py
-│   │   └── model.pkl
-│   ├── requirements.txt
-│   ├── Dockerfile
-│   └── docker-compose.yml
+├── app/
+│   ├── main.py
+│   ├── database.py
+│   ├── models.py
+│   ├── schemas.py
+│   └── routes/
+│       └── predict.py
 │
-├── frontend/
-│   ├── src/
-│   └── package.json
+├── ml_model/
+│   ├── train.py
+│   └── model.pkl
 │
 └── data/
     └── heart.csv
 
+frontend/
+│
+├── src/
+├── package.json
+├── vite.config.js
+└── index.html
 
----
-
-## 📊 Dataset
-
-Dataset: `heart.csv`
-
-Common Features:
-- age
-- sex
-- cp (chest pain type)
-- trestbps
-- chol
-- fbs
-- restecg
-- thalach
-- exang
-- oldpeak
-- slope
-- ca
-- thal
-- target (0 = No Disease, 1 = Disease)
-
----
-
-# 🧠 Machine Learning Pipeline
-
-1. Load dataset
-2. Perform EDA
-3. Handle missing values
-4. Feature scaling
-5. Train multiple models
-6. Evaluate accuracy
-7. Save best model as `model.pkl`
-
----
-
-# 🚀 Setup Instructions
-
----
-
-## 🔹 1. Clone Repository
-
-```bash
-git clone <your-repo-url>
-cd heart-disease-prediction
+README.md
 ```
 
 ---
 
-## 🔹 2. Backend Setup
+# Complete Setup Guide (End-to-End)
 
-### Create Virtual Environment
+Follow every step exactly.
 
-```bash
-cd backend
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
+---
+
+# Step 1: Clone Repository
+
 ```
+git clone https://github.com/YOUR_USERNAME/Heart_Disease_Prediction_System.git
 
-### Install Dependencies
-
-```bash
-pip install -r requirements.txt
+cd Heart_Disease_Prediction_System
 ```
 
 ---
 
-## 🔹 3. Train ML Model
+# Step 2: Create Python Virtual Environment
 
-```bash
-python app/ml_model/train.py
-```
-
-This generates:
+Mac/Linux
 
 ```
-model.pkl
+python3 -m venv .venv
+
+source .venv/bin/activate
+```
+
+Windows
+
+```
+python -m venv .venv
+
+.venv\Scripts\activate
 ```
 
 ---
 
-## 🔹 4. Setup PostgreSQL
+# Step 3: Install Backend Dependencies
 
-Create a database:
+```
+pip install fastapi uvicorn sqlalchemy psycopg2-binary pandas numpy scikit-learn
+```
 
-```sql
+Verify
+
+```
+pip list
+```
+
+---
+
+# Step 4: Install PostgreSQL
+
+Mac (Homebrew)
+
+```
+brew install postgresql
+
+brew services start postgresql
+```
+
+Verify PostgreSQL running
+
+```
+brew services list
+```
+
+Status should be:
+
+```
+postgresql started
+```
+
+---
+
+# Step 5: Create Database
+
+Open PostgreSQL
+
+```
+psql postgres
+```
+
+Create database
+
+```
 CREATE DATABASE heartdb;
 ```
 
-Update your database credentials inside:
+Exit
+
+```
+\q
+```
+
+---
+
+# Step 6: Configure Database Connection
+
+Open file
 
 ```
 backend/app/database.py
 ```
 
----
+Set your username
 
-## 🔹 5. Run Backend API
-
-```bash
-uvicorn app.main:app --reload
+```
+DATABASE_URL = "postgresql://YOUR_USERNAME@localhost:5432/heartdb"
 ```
 
-Open Swagger UI:
+Example
+
+```
+DATABASE_URL = "postgresql://kalyanreddy@localhost:5432/heartdb"
+```
+
+---
+
+# Step 7: Add Dataset
+
+Place dataset file here
+
+```
+backend/data/heart.csv
+```
+
+Verify
+
+```
+ls backend/data
+```
+
+Expected output
+
+```
+heart.csv
+```
+
+---
+
+# Step 8: Train Machine Learning Model
+
+Run
+
+```
+python backend/ml_model/train.py
+```
+
+This creates
+
+```
+backend/ml_model/model.pkl
+```
+
+Verify model file
+
+```
+ls -lh backend/ml_model/model.pkl
+```
+
+File size must NOT be 0 bytes.
+
+---
+
+# Step 9: Start FastAPI Backend
+
+Run
+
+```
+uvicorn backend.app.main:app --reload
+```
+
+Backend running at
+
+```
+http://127.0.0.1:8000
+```
+
+Swagger API Docs
 
 ```
 http://127.0.0.1:8000/docs
@@ -192,15 +290,19 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## 🔹 6. Frontend Setup
+# Step 10: Start React Frontend
 
-```bash
+Open new terminal
+
+```
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
-Open:
+Frontend running at
 
 ```
 http://localhost:5173
@@ -208,17 +310,35 @@ http://localhost:5173
 
 ---
 
-# 📡 API Endpoints
+# Step 11: Use the Application
 
-## POST /predict
+Open browser
 
-### Request Body
+```
+http://localhost:5173
+```
 
-```json
+Enter values and click Predict.
+
+You will see prediction result.
+
+---
+
+# API Endpoint
+
+POST
+
+```
+/predict
+```
+
+Example Request
+
+```
 {
   "age": 52,
   "sex": 1,
-  "cp": 2,
+  "cp": 0,
   "trestbps": 125,
   "chol": 212,
   "fbs": 0,
@@ -227,84 +347,109 @@ http://localhost:5173
   "exang": 0,
   "oldpeak": 1.0,
   "slope": 2,
-  "ca": 0,
-  "thal": 2
+  "ca": 2,
+  "thal": 3
 }
 ```
 
-### Response
+Example Response
 
-```json
+```
 {
-  "prediction": 1,
-  "probability": 0.87
+  "prediction": 0
 }
 ```
 
----
-
-# 🗄️ Database Schema
-
-Table: predictions
-
-| Column | Type |
-|--------|------|
-| id | Integer (PK) |
-| age | Integer |
-| sex | Integer |
-| ... | ... |
-| prediction | Integer |
-| probability | Float |
-| created_at | Timestamp |
+0 = Lower Risk  
+1 = Higher Risk  
 
 ---
 
-# 🐳 Docker (Optional)
+# Database Storage Verification
 
-Run full system:
+Open PostgreSQL
 
-```bash
-docker-compose up --build
+```
+psql heartdb
+```
+
+Run
+
+```
+SELECT * FROM heart_predictions ORDER BY id DESC LIMIT 5;
+```
+
+All predictions will be stored here.
+
+---
+
+# Common Errors and Fixes
+
+Model file empty
+
+```
+rm backend/ml_model/model.pkl
+
+python backend/ml_model/train.py
+```
+
+PostgreSQL connection error
+
+Verify service running
+
+```
+brew services list
+```
+
+CORS error
+
+Ensure CORSMiddleware added in
+
+```
+backend/app/main.py
 ```
 
 ---
 
-# 📈 Model Evaluation Metrics
+# Development Workflow
 
-- Accuracy
-- Precision
-- Recall
-- F1 Score
-- ROC-AUC
+Start backend
 
----
+```
+uvicorn backend.app.main:app --reload
+```
 
-# 🔒 Future Improvements
+Start frontend
 
-- Model versioning
-- Authentication (JWT)
-- CI/CD pipeline
-- AWS deployment
-- Model monitoring
-- Logging & observability
+```
+cd frontend
+
+npm run dev
+```
 
 ---
 
-# 🎯 Resume Value
+# Future Improvements
 
-This project demonstrates:
-
-- Production-grade ML system design
-- API development with FastAPI
-- Database integration
-- Full-stack development
-- Real-world deployment readiness
+• Docker containerization  
+• Cloud deployment (AWS / GCP / Azure)  
+• Model performance metrics dashboard  
+• User authentication  
+• Prediction history UI  
+• Model retraining pipeline  
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 Kalyan Reddy  
-AI / ML Engineer  
+AI/ML Engineer  
+Full-Stack Developer  
 
 ---
+
+# License
+
+MIT License
+
+Free to use and modify.
