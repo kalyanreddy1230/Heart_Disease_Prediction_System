@@ -48,10 +48,6 @@ PostgreSQL Database
 - Axios
 - TailwindCSS / Bootstrap
 
-### DevOps (Optional)
-- Docker
-- Docker Compose
-
 ---
 
 ## 📂 Project Structure
