@@ -113,7 +113,7 @@ Follow every step exactly.
 # Step 1: Clone Repository
 
 ```
-git clone https://github.com/YOUR_USERNAME/Heart_Disease_Prediction_System.git
+git clone https://github.com/kalyanreddy1230/Heart_Disease_Prediction_System.git
 
 cd Heart_Disease_Prediction_System
 ```
