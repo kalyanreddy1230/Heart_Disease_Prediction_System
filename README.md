@@ -383,34 +383,6 @@ All predictions will be stored here.
 
 ---
 
-# Common Errors and Fixes
-
-Model file empty
-
-```
-rm backend/ml_model/model.pkl
-
-python backend/ml_model/train.py
-```
-
-PostgreSQL connection error
-
-Verify service running
-
-```
-brew services list
-```
-
-CORS error
-
-Ensure CORSMiddleware added in
-
-```
-backend/app/main.py
-```
-
----
-
 # Development Workflow
 
 Start backend
